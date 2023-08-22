@@ -39,4 +39,4 @@ for line in sys.stdin:
                 libobj = list_data[17]
                 size = list_data[18]
 
-                print('%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s' % (cpcli, villecli, year, codobj, codcde, libobj, size, qte))
+                print('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}'.format(cpcli, villecli, year, codobj, codcde, libobj, size, qte))
