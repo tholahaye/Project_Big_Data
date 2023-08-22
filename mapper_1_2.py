@@ -1,4 +1,3 @@
-
 import sys
 # print(sys.maxunicode > 0xffff)
 
@@ -41,7 +40,7 @@ for line in sys.stdin:
             except ValueError:
                 continue
 
-            nom_prenom = list_data[2]+list_data[3]
+            nom_prenom = list_data[2] + " " + list_data[3]
             villecli = list_data[5].replace("SAINT ", "ST ")
             codcde = list_data[6]
 
