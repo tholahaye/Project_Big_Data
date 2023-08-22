@@ -28,7 +28,10 @@ for line in sys.stdin:
         codcde = mapper[4]
         libobj = mapper[5]
         feature = mapper[6]
-        qte = int(mapper[7])
+        try:
+            qte = int(mapper[7])
+        except ValueError:
+            continue
         # On vérifie que la ville est la même que la ligne précédente
         if current_city and current_city == villecli and current_year == year and current_obj == codobj:
             # On vérifie que la commande est la même qu'à la ligne précédente pour sommer la quantité

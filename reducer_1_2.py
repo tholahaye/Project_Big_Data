@@ -28,10 +28,20 @@ for line in sys.stdin:
         villecli = mapper[0]
         cpcli = mapper[1]
         name = mapper[2]
-        points = int(mapper[3])
-        qte = int(mapper[4])
+        try:
+            points = int(mapper[3])
+        except ValueError:
+            continue
+        try:
+            qte = int(mapper[4])
+        except ValueError:
+            continue
         codcde = mapper[5]
-        nbcolis = int(mapper[6])
+        try:
+            nbcolis = int(mapper[6])
+        except ValueError:
+            continue
+
         # On vérifie que la ville est la même que la ligne précédente
         if current_name and current_name == name:
             # On vérifie que la commande est la même qu'à la ligne précédente pour sommer la quantité
