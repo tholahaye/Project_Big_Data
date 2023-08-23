@@ -1,7 +1,7 @@
 import sys
 import math
 
-current_cp = None
+current_dep = None
 current_city = None
 current_name = None
 current_cde = None
@@ -25,8 +25,8 @@ for line in sys.stdin:
         # Gérer anomalie ?
         continue
     else:
-        villecli = mapper[0]
-        cpcli = mapper[1]
+        depcli = mapper[0]
+        villecli = mapper[1]
         name = mapper[2]
         try:
             points = int(mapper[3])
@@ -72,16 +72,16 @@ for line in sys.stdin:
                 standard_deviation_nbcolis = math.sqrt(avg_nbcolis2 - avg_nbcolis ** 2)
 
                 # Création du dictionnaire du client
-                dict_client = {"villecli": current_city, "cpcli": current_cp, "name": current_name,
-                                "points": current_sum_points, "nbcde": current_nbcde, "avg_nbcolis": avg_nbcolis,
-                                "standard_deviation_nbcolis": standard_deviation_nbcolis}
+                dict_client = {"depcli": current_dep, "villecli": current_city,"name": current_name,
+                               "points": current_sum_points, "nbcde": current_nbcde, "avg_nbcolis": avg_nbcolis,
+                               "standard_deviation_nbcolis": standard_deviation_nbcolis}
                 
                 # Ajout du dictionnaire client au dictionnaire de résultats
                 list_results.append(dict_client)
 
 
             # Mise à jour des variables du décompte en cours
-            current_cp = cpcli
+            current_dep = depcli
             current_city = villecli
             current_name = name
             current_cde = codcde
@@ -107,7 +107,7 @@ if current_name:
     standard_deviation_nbcolis = math.sqrt(avg_nbcolis2 - avg_nbcolis ** 2)
 
     # Création du dictionnaire du client
-    dict_client = {"villecli": current_city, "cpcli": current_cp, "name": current_name,
+    dict_client = {"depcli": current_dep, "villecli": current_city, "name": current_name,
                    "points": current_sum_points, "nbcde": current_nbcde, "avg_nbcolis": avg_nbcolis,
                    "standard_deviation_nbcolis": standard_deviation_nbcolis}
 
@@ -117,7 +117,7 @@ if current_name:
 # Tri des résultats en fonction du plus grand nombre de points
     list_results.sort(key=lambda dic: dic.get('points'), reverse=True)
     for x in range(10):
-        print("{}\t{}\t{}\t{}\t{}\t{}\t{}".format(list_results[x]["villecli"], list_results[x]["cpcli"],
-                                          list_results[x]["name"], list_results[x]["points"],
-                                          list_results[x]["nbcde"], list_results[x]["avg_nbcolis"],
-                                          list_results[x]["standard_deviation_nbcolis"]))
+        print("{}\t{}\t{}\t{}\t{}\t{}\t{}".format(list_results[x]["depcli"], list_results[x]["villecli"],
+                                                  list_results[x]["name"], list_results[x]["points"],
+                                                  list_results[x]["nbcde"], list_results[x]["avg_nbcolis"],
+                                                  list_results[x]["standard_deviation_nbcolis"]))

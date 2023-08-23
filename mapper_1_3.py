@@ -14,7 +14,7 @@ for line in sys.stdin:
 
         cpcli = list_data[4]
 
-        if cpcli.startswith('53'):
+        if (cpcli.startswith('49') or cpcli.startswith('53') or cpcli.startswith('72')):
 
             datcde = list_data[7]
 
@@ -25,17 +25,25 @@ for line in sys.stdin:
                 year = int(year)
             except ValueError:
                 continue
-            if year >= 2010:
+            if year >= 2008:
 
                 try:
                     qte = int(list_data[15])
                 except ValueError:
                     continue
 
-                villecli = list_data[5].replace("SAINT ", "ST ")
+                if cpcli.startswith('49'):
+                    depcli = "Maine-et-Loire (49)"
+                elif cpcli.startswith('53'):
+                    depcli = "Mayenne (53)"
+                else:
+                    depcli = "Sarthe (72)"
                 codcde = list_data[6]
                 codobj = list_data[14]
-                libobj = list_data[17]
-                size = list_data[18]
+                feature = list_data[18]
+                if feature == "NULL":
+                    libobj = list_data[17]
+                else:
+                    libobj = list_data[17] + " (" + feature + ")"
 
-                print('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}'.format(cpcli, villecli, year, codobj, codcde, libobj, size, qte))
+                print('{}\t{}\t{}\t{}\t{}\t{}'.format(codobj, depcli, year, codcde, libobj, qte))
