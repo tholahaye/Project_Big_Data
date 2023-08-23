@@ -78,7 +78,7 @@ min_annee = data["annee"].min()
 max_annee = data["annee"].max()
 x = range(min_annee, max_annee+1)
 
-#### quantités commandées ####
+#### quantités commandées (2 objets) ####
 obj_set = list(set(data["objet"]))
 for obj in obj_set[0:2]:
     data_obj = data[data["objet"] == obj]
@@ -101,7 +101,7 @@ for obj in obj_set[0:2]:
     plt.show()
 
 
-#### nombres de commandes ####
+#### nombres de commandes (2 objets) ####
 obj_set = list(set(data["objet"]))
 for obj in obj_set[0:2]:
     data_obj = data[data["objet"] == obj]
