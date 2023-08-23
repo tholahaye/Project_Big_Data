@@ -6,7 +6,7 @@ for line in sys.stdin:
     line = line.strip()
     list_data = line.split(',')
     if len(list_data) != 25:
-        # Gérer l'anomalie
+        #TODO Gérer l'anomalie
         continue
     else:
         for n in range(len(list_data)):
