@@ -73,7 +73,7 @@ if current_dep and current_obj and current_cde and \
 
 
 # Instantiating PDF document
-pdf = PdfPages("Croissance.pdf")
+pdf = PdfPages("Croissance_objets.pdf")
 
 #### Graphiques de croissance ####
 data = data.convert_dtypes()
