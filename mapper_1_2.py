@@ -12,7 +12,7 @@ for line in sys.stdin:
         for n in range(len(list_data)):
             list_data[n] = list_data[n].strip('"')
 
-        cpcli = list_data[4]
+        depcli = list_data[4][:2]
 
         datcde = list_data[7]
 
@@ -40,8 +40,8 @@ for line in sys.stdin:
             except ValueError:
                 continue
 
-            nom_prenom = list_data[2] + " " + list_data[3]
+            client = list_data[1] + " " +list_data[2] + " " + list_data[3]
             villecli = list_data[5].replace("SAINT ", "ST ")
             codcde = list_data[6]
 
-            print("{}\t{}\t{}\t{}\t{}\t{}\t{}".format(villecli, cpcli, nom_prenom, points, qte, codcde, nbcolis))
+            print("{}\t{}\t{}\t{}\t{}\t{}\t{}".format(depcli, villecli, client, points, qte, codcde, nbcolis))
