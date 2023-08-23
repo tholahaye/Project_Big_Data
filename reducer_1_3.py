@@ -51,8 +51,8 @@ for line in sys.stdin:
                 row = {'objet':current_libobj, 'departement':current_dep, 'annee':current_year,
                        'nombre_commandes':current_nbcde, 'quantite':current_qte}
                 data = pd.concat([data, pd.DataFrame([row])], ignore_index=True)
-                #print("{}\t{}\t{}\t{}\t{}".format(current_libobj, current_dep, current_year,
-                 #                                 current_nbcde, current_qte))
+                print("{}\t{}\t{}\t{}\t{}".format(current_libobj, current_dep, current_year,
+                                                  current_nbcde, current_qte))
             # Mise à jour des variables du décompte en cours
             current_dep = depcli
             current_year = year
@@ -68,8 +68,8 @@ if current_dep and current_obj and current_cde and \
     row = {'objet': current_libobj, 'departement': current_dep, 'annee': current_year,
            'nombre_commandes': current_nbcde, 'quantite': current_qte}
     data = pd.concat([data, pd.DataFrame([row])], ignore_index=True)
-    #print("{}\t{}\t{}\t{}\t{}".format(current_libobj, current_dep, current_year,
-     #                                 current_nbcde, current_qte))
+    print("{}\t{}\t{}\t{}\t{}".format(current_libobj, current_dep, current_year,
+                                      current_nbcde, current_qte))
 
 
 # Instantiating PDF document
