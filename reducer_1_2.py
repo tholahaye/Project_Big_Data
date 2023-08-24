@@ -133,7 +133,7 @@ if current_name:
                                                   list_results[x]["standard_deviation_nbcolis"]))
 
     # Instantiating PDF document
-    pdf = PdfPages('Meilleurs_clients.pdf')
+    pdf = PdfPages('/datavolume1/Meilleurs_clients.pdf')
 
     # Creating figure
     fig = plt.figure(dpi=100)
