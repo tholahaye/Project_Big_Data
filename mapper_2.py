@@ -16,6 +16,7 @@ for line in sys.stdin:
         villecli = datafro[5]
         cpcli = datafro[4][:2]
         nbcoli = datafro[10]
+        timbrecli = datafro[8]
         timbrecde = datafro[9]
         date = datafro[7].split('-')[0]
         qte = datafro[15]
