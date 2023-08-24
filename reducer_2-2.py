@@ -61,7 +61,7 @@ filtered_df = top100[top100['cpcli'].str.startswith(tuple(cp_sample))]
 list_sample = filtered_df.sample(sample5)
 
 
-list_sample.to_excel('list_sample5%.xlsx', index=False)
+list_sample.to_excel('/datavolume1/list_sample5%.xlsx', index=False)
 
 #print(list_sample)
 
