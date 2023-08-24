@@ -1,7 +1,6 @@
 import sys
 import pandas as pd
 import matplotlib.pyplot as plt
-#print('codcli\tcodecde\tvillecli\tcpcli\tnbcoli\ttimbrecde\tpoint\tcommande\tmoyenne')
 
 data = []
 current_codecde = None
@@ -22,15 +21,15 @@ for line in sys.stdin:
     except ValueError:
         continue
 
-    timbrecde = mapper[5]
-    date = mapper[6]
+    timbrecde = mapper[6]
+    timbrecli = mapper[5]
 
     try:
-        point = float(mapper[8])*float(mapper[7])
+        point = float(mapper[9])*float(mapper[8])
     except ValueError:
         continue
 
-    if timbrecde in ['0','NULL']:
+    if timbrecli in ['0','NULL']:
         continue
 
     if current_codecde is None:
