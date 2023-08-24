@@ -4,12 +4,9 @@ import datetime
 import uuid
 import csv
 
-# TODO read the csv file
-
-# TODO take the file name from the command line
 file_name = sys.argv[1]
 
-file = open(file_name, errors='surrogateescape')
+file = open(file_name, errors='surrogateescape', encoding='utf-8')
 try:
     csvreader = csv.reader(file)
     
@@ -17,11 +14,11 @@ try:
     
     connection.open()
 
-    print("Connecte a HBase")
+    print("Connection a HBase reussi")
 
-    table_name = "maTable"
+    table_name = "dataw_fro03bis"
 
-    column_family_name = "cf"
+    column_family_name = "fidelity"
 
     try:
         # Creation de la table si elle n'existe pas deja dans HBase
@@ -42,6 +39,7 @@ try:
             nb_row += 1
             if len(line) != 25:
                 print("Wrong index of arguments: {}".format(line))
+                nb_error += 1
                 continue
             else:
 
@@ -56,7 +54,6 @@ try:
                     # Remplissage de la liste de headers
                     for index in range(len(line)):
                         list_headers.append("{}:{}".format(column_family_name, line[index]))
-                    print(list_headers)
                     continue
 
                 for index in range(len(line)):
@@ -86,8 +83,7 @@ try:
                 table.put(row_key, dict_data)
 
                 # Incrementation du decompte de lignes inserees
-
-            nb_row_put += 1
+                nb_row_put += 1
 
 # Fermeture de la connection HBase
     finally:
@@ -97,3 +93,4 @@ finally:
     file.close()
 
 print("{} rows inserted".format(nb_row_put))
+print("{} errors".format(nb_error))
